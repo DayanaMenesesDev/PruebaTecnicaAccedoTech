@@ -1,0 +1,35 @@
+.main__newPublication__form__containerText {
+    position: relative;
+    & div {
+        position: absolute;
+        background-color: rgba(59, 59, 59, 0.533);
+        backdrop-filter: blur(5px);
+        width: 200px;
+        height: auto;
+        bottom: calc(-2px - 200px);
+        right: 0;
+        z-index: 1000;
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        transform: scale(0);
+        transition: transform .3s;
+        & i {
+            background-color: white;
+            border-radius: 50%;
+            text-align: center;
+            position: absolute;
+            width: 1em;
+            height: 1em;
+            top: -.3em;
+            right: -.3em;
+            color: red;
+            cursor: pointer;
+        }
+    }
+    & .openContainerEmoji {
+        transform: scale(1);
+    }
+}

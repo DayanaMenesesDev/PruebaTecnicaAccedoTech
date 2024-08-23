@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/3cf8ee9758.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./public/css/normalize.css" />
+    <link rel="stylesheet" href="./public/css/index.css" />
+    <link rel="stylesheet" href="./public/css/emojis.css">
+  </head>
+  <body>
+    <main class="main">
+      <section class="main__newPublication">
+        <form id="form" method="get" class="main__newPublication__form">
+          <div class="main__newPublication__form__containerAvatar">
+            <img src="./public/upload/avatar.jpg" alt="avatar.png" />
+          </div>
+          <div class="main__newPublication__form__containerText">
+            <textarea name="textarea" id="textarea"></textarea>
+            <i class="fa-regular fa-face-laugh-beam"></i>
+            <div id="containerEmoji"><i class="fa-solid fa-xmark"></i></div>
+          </div>
+          <div id="optionsPost" class="main__newPublication__options">
+            <div class="main__newPublication__form__containerMultimedia">
+              <p>Agrega</p>
+              <div>
+                <label for="img"><i class="fa-regular fa-image"></i></label>
+                <input
+                  id="img"
+                  hidden
+                  type="file"
+                  name="file"
+                  accept="image/*"
+                />
+              </div>
+              <div>
+                <label for="play"
+                  ><i class="fa-solid fa-circle-play"></i
+                ></label>
+                <input id="play" hidden type="file" accept="video/*" />
+              </div>
+              <div>
+                <label for="audio"
+                  ><i class="fa-solid fa-microphone"></i
+                ></label>
+                <input id="audio" hidden type="file" accept="audio/*" />
+              </div>
+              <div>
+                <label for="tag"><i class="fa-solid fa-tag"></i></label>
+                <input id="tag" hidden type="text" />
+              </div>
+            </div>
+            <div class="main__newPublication__form__containerStatus">
+              <select name="" id="">
+                <option value="">Public</option>
+                <option value="">Private</option>
+                <option value="">Just for me</option>
+              </select>
+            </div>
+            <div class="main__newPublication__form__containerSend">
+              <input type="submit" value="Post" id="submit" />
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="main__options">
+        <button>Timeling</button>
+        <button>Friends</button>
+        <button>Private Channel</button>
+      </section>
+
+      <section class="main__publications"></section>
+    </main>
+    <script src="./public/js/index.js"></script>
+    <script src="./public/js/previewImg.js"></script>
+    <script src="./public/js/emojis.js"></script>
+  </body>
+</html>
