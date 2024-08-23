@@ -20,8 +20,6 @@ document.addEventListener('click',(e)=> {
     }
 })
 
-
-
 const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -55,31 +53,51 @@ const generateRandomMetrics = (max) => ({
 });
 
 const createPost = () => {
-    const postSave = localStorage.getItem('file') || 'img.png';
+    const postSave = localStorage.getItem('file')/*  || 'img.png' */;
     const textSave = localStorage.getItem('textPublic') || '';
     
-    if (postSave) {
+    if (postSave || textSave) {
         const metrics = generateRandomMetrics(Math.floor(Math.random() * 1500));
-        
         const article = document.createElement('article');
         article.classList.add('main__publications__publication');
-        article.innerHTML = `
-            <div>
+        const imgPublic = document.getElementById('imgPublic')
+        if (postSave) {
+            article.innerHTML = `
                 <div>
-                    <img src="./public/upload/avatar.jpg" alt="Avatar">
-                    <h3>${UserName}</h3>
-                    <p>Just now <i class="fa-solid fa-earth-americas"></i></p>
+                    <div>
+                        <img src="./public/upload/avatar.jpg" alt="Avatar">
+                        <h3>${UserName}</h3>
+                        <p>Just now <i class="fa-solid fa-earth-americas"></i></p>
+                    </div>
+                    <div><i>...</i></div>
                 </div>
-                <div><i>...</i></div>
-            </div>
-            <p>${textSave}</p>
-            <img id="imgPublic" src="${postSave}" alt="User Uploaded File">
-            <h5>
-                <span><i class="fa-brands fa-gratipay"></i> ${metrics.likes} Likes</span>
-                <span><i class="fa-solid fa-comment"></i> ${metrics.comments} Comments</span>
-                <span><i class="fa-solid fa-share"></i> ${metrics.shares} Shares</span>
-            </h5>
-        `;
+                <p>${textSave}</p>
+                <img id="imgPublic" src="${postSave}" alt="User Uploaded File">
+                <h5>
+                    <span><i class="fa-brands fa-gratipay"></i> ${metrics.likes} Likes</span>
+                    <span><i class="fa-solid fa-comment"></i> ${metrics.comments} Comments</span>
+                    <span><i class="fa-solid fa-share"></i> ${metrics.shares} Shares</span>
+                </h5>
+            `;
+        } else {
+            article.innerHTML = `
+                <div>
+                    <div>
+                        <img src="./public/upload/avatar.jpg" alt="Avatar">
+                        <h3>${UserName}</h3>
+                        <p>Just now <i class="fa-solid fa-earth-americas"></i></p>
+                    </div>
+                    <div><i>...</i></div>
+                </div>
+                <p>${textSave}</p>
+                <img hidden id="imgPublic" src="${postSave}" alt="User Uploaded File">
+                <h5>
+                    <span><i class="fa-brands fa-gratipay"></i> ${metrics.likes} Likes</span>
+                    <span><i class="fa-solid fa-comment"></i> ${metrics.comments} Comments</span>
+                    <span><i class="fa-solid fa-share"></i> ${metrics.shares} Shares</span>
+                </h5>
+            `;
+        }
         mainPublications.appendChild(article);
         localStorage.clear();
     }
