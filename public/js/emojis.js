@@ -43,10 +43,4 @@ closeContainerEmoji.addEventListener('click', ()=> {
     containerEmoji.classList.toggle('openContainerEmoji')
 })
 
-/* 
-document.addEventListener('click',(e)=> {
-    if (e.target !== closeContainerEmoji && !containerEmoji.contains(e.target)) {
-        containerEmoji.classList.toggle('openContainerEmoji')
-    }
-}) */
 
